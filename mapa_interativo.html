@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_a35443c903abf845702391fae1a50480 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_a35443c903abf845702391fae1a50480" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_a35443c903abf845702391fae1a50480 = L.map(
+                "map_a35443c903abf845702391fae1a50480",
+                {
+                    center: [-5.7945, -35.211],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 6,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_253edd56897754874a7d2d4f1907394f = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_253edd56897754874a7d2d4f1907394f.addTo(map_a35443c903abf845702391fae1a50480);
+        
+    
+            var marker_a9cbb44d8109221130d099b911dc498e = L.marker(
+                [-7.11532, -34.861],
+                {}
+            ).addTo(map_a35443c903abf845702391fae1a50480);
+        
+    
+            var icon_240dd3eed4fca08aaca1de4e863a2fbf = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_a9cbb44d8109221130d099b911dc498e.setIcon(icon_240dd3eed4fca08aaca1de4e863a2fbf);
+        
+    
+        var popup_46f9f84096406ad21860dfee7a4051ee = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_c0a67e00eb66de82234a307b41128571 = $(`<div id="html_c0a67e00eb66de82234a307b41128571" style="width: 100.0%; height: 100.0%;"><b>João Pessoa</b><br>Dengue: 1<br>Chikungunya: 1<br>Febre Amarela: 1<br>Asma: 0<br>Bronquite: 1</div>`)[0];
+                popup_46f9f84096406ad21860dfee7a4051ee.setContent(html_c0a67e00eb66de82234a307b41128571);
+            
+        
+
+        marker_a9cbb44d8109221130d099b911dc498e.bindPopup(popup_46f9f84096406ad21860dfee7a4051ee)
+        ;
+
+        
+    
+    
+            var marker_d86e5afd0633a95088210aaa1a631fd6 = L.marker(
+                [-8.04756, -34.876],
+                {}
+            ).addTo(map_a35443c903abf845702391fae1a50480);
+        
+    
+            var icon_057c566b40eb4925380fd10e8bd07fd6 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_d86e5afd0633a95088210aaa1a631fd6.setIcon(icon_057c566b40eb4925380fd10e8bd07fd6);
+        
+    
+        var popup_194920aafa85255342475c2ad25a55d1 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_c0ec65aa26060ef6b2a33a756c3d183d = $(`<div id="html_c0ec65aa26060ef6b2a33a756c3d183d" style="width: 100.0%; height: 100.0%;"><b>Recife</b><br>Dengue: 0<br>Chikungunya: 0<br>Febre Amarela: 0<br>Asma: 1<br>Bronquite: 0</div>`)[0];
+                popup_194920aafa85255342475c2ad25a55d1.setContent(html_c0ec65aa26060ef6b2a33a756c3d183d);
+            
+        
+
+        marker_d86e5afd0633a95088210aaa1a631fd6.bindPopup(popup_194920aafa85255342475c2ad25a55d1)
+        ;
+
+        
+    
+    
+            var marker_26dd0c0e624c749d44a020d5d6a5a22b = L.marker(
+                [-3.71722, -38.543],
+                {}
+            ).addTo(map_a35443c903abf845702391fae1a50480);
+        
+    
+            var icon_231a1a6f83956e6db4748c1a62f96d70 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_26dd0c0e624c749d44a020d5d6a5a22b.setIcon(icon_231a1a6f83956e6db4748c1a62f96d70);
+        
+    
+        var popup_f54b4e878ee61ff4560e1c12409e646b = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_0584d1ff1b8b8a52c9970c4bdba5c4e3 = $(`<div id="html_0584d1ff1b8b8a52c9970c4bdba5c4e3" style="width: 100.0%; height: 100.0%;"><b>Fortaleza</b><br>Dengue: 1<br>Chikungunya: 1<br>Febre Amarela: 1<br>Asma: 0<br>Bronquite: 1</div>`)[0];
+                popup_f54b4e878ee61ff4560e1c12409e646b.setContent(html_0584d1ff1b8b8a52c9970c4bdba5c4e3);
+            
+        
+
+        marker_26dd0c0e624c749d44a020d5d6a5a22b.bindPopup(popup_f54b4e878ee61ff4560e1c12409e646b)
+        ;
+
+        
+    
+</script>
+</html>

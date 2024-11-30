@@ -1,0 +1,93 @@
+import tkinter as tk
+from tkinter import messagebox
+
+# Lista de 30 perguntas mais avançadas
+# Formato: (pergunta, [alternativa1, alternativa2, alternativa3, alternativa4], índice da resposta correta)
+questoes = [
+    ("1. Qual dos seguintes elementos é o mais eletronegativo?", ["Oxigênio", "Flúor", "Cloro", "Nitrogênio"], 1),
+    ("2. Qual é a constante de Planck?", ["6,63 x 10^-34 J·s", "3,00 x 10^8 m/s", "1,60 x 10^-19 C", "9,81 m/s²"], 0),
+    ("3. Qual das seguintes moléculas possui ligação iônica?", ["HCl", "H2O", "NaCl", "O2"], 2),
+    ("4. Qual é o principal processo que leva à formação de proteínas nas células?", ["Fotossíntese", "Transcrição", "Tradução", "Glicólise"], 2),
+    ("5. Em qual camada da Terra ocorre a maioria dos fenômenos climáticos?", ["Litosfera", "Estratosfera", "Troposfera", "Mesosfera"], 2),
+    ("6. Qual é o valor aproximado da aceleração da gravidade na superfície da Terra?", ["9,8 m/s²", "10 m/s²", "9,81 m/s²", "8,9 m/s²"], 0),
+    ("7. Qual é a principal função das mitocôndrias?", ["Síntese de proteínas", "Produção de energia", "Armazenamento de lipídios", "Divisão celular"], 1),
+    ("8. Qual é a fórmula química do ácido sulfúrico?", ["HCl", "H2SO4", "HNO3", "H2CO3"], 1),
+    ("9. Qual partícula subatômica possui carga negativa?", ["Próton", "Nêutron", "Elétron", "Posítron"], 2),
+    ("10. Qual é a unidade de medida da força no Sistema Internacional?", ["Newton", "Joule", "Watt", "Pascal"], 0),
+    ("11. Qual fenômeno explica o efeito estufa?", ["Refração da luz", "Absorção de calor", "Reflexão da luz", "Condução térmica"], 1),
+    ("12. Qual gás é essencial para a respiração celular?", ["Hidrogênio", "Dióxido de carbono", "Oxigênio", "Nitrogênio"], 2),
+    ("13. Qual é a principal função da hemoglobina?", ["Transportar oxigênio", "Regular o pH", "Lutar contra infecções", "Transportar hormônios"], 0),
+    ("14. Em que processo ocorre a conversão de energia luminosa em energia química?", ["Respiração", "Fotossíntese", "Fermentação", "Glicólise"], 1),
+    ("15. Qual é o nome do processo de divisão celular em células somáticas?", ["Meiose", "Mitose", "Cissiparidade", "Conjugação"], 1),
+    ("16. O que representa a letra 'c' na fórmula de Einstein E=mc²?", ["Velocidade da luz", "Carga elétrica", "Constante gravitacional", "Temperatura"], 0),
+    ("17. Qual fenômeno está relacionado ao som e não à luz?", ["Refração", "Difração", "Ressonância", "Dispersão"], 2),
+    ("18. Qual é a função dos ribossomos nas células?", ["Síntese de proteínas", "Produção de energia", "Divisão celular", "Armazenamento de energia"], 0),
+    ("19. Qual é a fórmula química do gás carbônico?", ["CO", "CO2", "C2O4", "C2O2"], 1),
+    ("20. O que é DNA?", ["Molécula de energia", "Molécula de proteína", "Ácido nucleico", "Molécula de carboidrato"], 2),
+    ("21. Qual é a principal característica dos metais alcalinos?", ["Alta eletronegatividade", "Alta densidade", "Baixo ponto de fusão", "Reatividade alta"], 3),
+    ("22. O que é uma ligação covalente?", ["Compartilhamento de elétrons", "Transferência de elétrons", "Compartilhamento de prótons", "Compartilhamento de nêutrons"], 0),
+    ("23. Qual é a principal função do núcleo celular?", ["Regular o pH", "Produzir energia", "Armazenar informações genéticas", "Transportar nutrientes"], 2),
+    ("24. Qual das seguintes ondas eletromagnéticas possui maior frequência?", ["Infravermelho", "Micro-ondas", "Ultravioleta", "Rádio"], 2),
+    ("25. A reação de combustão completa de hidrocarbonetos gera:", ["CO e H2O", "CO2 e H2O", "C e H2", "CO e CO2"], 1),
+    ("26. Qual fenômeno ocorre quando uma luz branca passa por um prisma?", ["Refração", "Reflexão", "Dispersão", "Absorção"], 2),
+    ("27. Qual é o solvente universal?", ["Álcool", "Benzina", "Água", "Acetona"], 2),
+    ("28. Qual é a função dos lisossomos nas células?", ["Produzir energia", "Digestão intracelular", "Dividir células", "Armazenar DNA"], 1),
+    ("29. Qual é o principal componente do ar atmosférico?", ["Oxigênio", "Nitrogênio", "Dióxido de carbono", "Hidrogênio"], 1),
+    ("30. O que ocorre na fusão nuclear?", ["Fusão de elétrons", "Fissão de núcleos", "Fusão de núcleos", "Separação de átomos"], 2)
+]
+
+class QuizApp:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("Quiz de Ciências da Natureza")
+        self.root.geometry("600x400")
+
+        # Variáveis de controle
+        self.index_pergunta = 0
+        self.pontuacao = 0
+
+        # Label para a pergunta
+        self.label_pergunta = tk.Label(root, text="", wraplength=500, font=("Arial", 16))
+        self.label_pergunta.pack(pady=20)
+
+        # Variável para armazenar a resposta escolhida
+        self.resposta_selecionada = tk.IntVar()
+
+        # Opções de resposta (Radio Buttons)
+        self.opcoes_resposta = []
+        for i in range(4):
+            radio = tk.Radiobutton(root, text="", variable=self.resposta_selecionada, value=i, font=("Arial", 14))
+            radio.pack(anchor="w")
+            self.opcoes_resposta.append(radio)
+
+        # Botão para confirmar a resposta
+        self.botao_confirmar = tk.Button(root, text="Confirmar", command=self.verificar_resposta)
+        self.botao_confirmar.pack(pady=20)
+
+        # Carregar a primeira pergunta
+        self.carregar_pergunta()
+
+    def carregar_pergunta(self):
+        pergunta, alternativas, _ = questoes[self.index_pergunta]
+        self.label_pergunta.config(text=pergunta)
+        for i, alternativa in enumerate(alternativas):
+            self.opcoes_resposta[i].config(text=alternativa)
+        self.resposta_selecionada.set(-1)
+
+    def verificar_resposta(self):
+        if self.resposta_selecionada.get() == questoes[self.index_pergunta][2]:
+            self.pontuacao += 1
+        self.index_pergunta += 1
+        if self.index_pergunta < len(questoes):
+            self.carregar_pergunta()
+        else:
+            self.exibir_resultado()
+
+    def exibir_resultado(self):
+        messagebox.showinfo("Resultado", f"Você acertou {self.pontuacao} de {len(questoes)} perguntas!")
+        self.root.destroy()
+
+# Configuração da janela principal
+root = tk.Tk()
+app = QuizApp(root)
+root.mainloop()
